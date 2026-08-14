@@ -1,0 +1,32 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# macOS
+.DS_Store
+
+# Large model files
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.pth
+
+# Model directories
+models/
+Models/
+
+# Local Hugging Face cache
+.cache/
+huggingface/
+.cache/huggingface/
+
+# Local experiment outputs
+results/raw/
+*.log
+
+# Environment/secrets
+.env
+.env.*
