@@ -46,3 +46,51 @@ The model was stored locally at:
 
 ```text
 ~/Models/BrainMed-8B/BrainMed-8B.Q4_K_M.gguf
+```
+
+---
+
+## Hardware
+
+- Apple Silicon MacBook Air (ARM64)
+- 16 GB RAM
+- Apple Metal / MPS acceleration
+
+---
+
+## How to Run
+
+1. Install llama.cpp:
+
+   ```bash
+   brew install llama.cpp
+   ```
+
+2. Run the smoke test:
+
+   ```bash
+   python scripts/evaluate_brainmed.py --model ~/Models/BrainMed-8B/BrainMed-8B.Q4_K_M.gguf
+   ```
+
+   You can also set the model path with the `BRAINMED_MODEL` environment
+   variable, and a different llama.cpp binary with `--llama-bin` or `LLAMA_BIN`.
+
+The script asks four clinical questions (acute chest pain, eclampsia,
+Kawasaki disease and a patient-safety question) with greedy decoding
+(`--temp 0`), and saves:
+
+- `results/evaluation_results.txt`: a readable report
+- `results/evaluation_results.json`: responses, timings, exit codes and llama.cpp logs
+
+If llama.cpp fails or returns nothing, the error and the last lines of its
+log are recorded for that question, so problems can be diagnosed.
+
+---
+
+## Repository Structure
+
+| Path | Purpose |
+| --- | --- |
+| `scripts/evaluate_brainmed.py` | Smoke-test evaluation script |
+| `results/` | Evaluation output |
+| `MODEL.md` | Model and hardware details |
