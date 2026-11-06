@@ -1,0 +1,25 @@
+# Models to compare. Copy this file to models.toml and edit the paths.
+#
+# Each [[models]] entry:
+#   name        label used in the report
+#   path        GGUF file on your Mac
+#   context     context size (optional, default 4096)
+#   gpu_layers  layers to offload to Metal (optional, default 99 = all)
+#   chat        true to use the model's chat template (default); false for
+#               base models without one
+#   extra_args  extra llama-server flags (optional)
+#
+# Keep the quantisation the same (e.g. all Q4_K_M) so the comparison is fair.
+# Colours in the charts follow the order of this list.
+
+[[models]]
+name = "BrainMed-8B"
+path = "~/Models/BrainMed-8B/BrainMed-8B.Q4_K_M.gguf"
+
+[[models]]
+name = "Llama-3.1-8B-Instruct"
+path = "~/Models/Llama-3.1-8B-Instruct/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf"
+
+[[models]]
+name = "Mistral-7B-Instruct"
+path = "~/Models/Mistral-7B-Instruct/Mistral-7B-Instruct-v0.3-Q4_K_M.gguf"
